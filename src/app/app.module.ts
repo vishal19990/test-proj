@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { SingupComponent } from './singup/singup.component';
 import { ErrorComponent } from './error/error.component';
 import { ChildComponent } from './child/child.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ChildComponent } from './child/child.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

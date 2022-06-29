@@ -1,10 +1,37 @@
-
+<!-- 
 <div class="parent">
-    <input type="text" [value]="" />
-    <p>login works!</p>
+    <input type="text" [value]="messgae" /> -->
+    <!-- <p>login works!</p>
     <h1>Data Recived from child {{childData}}</h1>
     <a routerLink="/signup">SignUp</a>>
-</div>
-<app-child [msg]="messgae" (newItemEvent)="ShowMessage($event)"></app-child>
+</div> -->
 
 
+
+<!-- <app-child [msg]="messgae" (newItemEvent)="ShowMessage($event)"></app-child> -->
+<!-- 
+<label>UserName</label>
+<input type="text" [formControl]="username"/><br><br><br><br>
+<label>Password</label>
+<input type="tex"  [formControl]="password"/>
+
+
+{{username.value}}
+
+
+{{password.value}} -->
+
+<form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+    <label>UserName</label>
+    <input type="text" formControlName="username"/><br><br><br><br>
+
+    <div *ngIf="m.username.errors?.['required']">
+        Name is required.
+      </div>
+    <label>Password</label>
+    <input type="text"  formControlName="password"/>
+
+    <button type="submit">Submit</button>
+</form>
+
+<h1>{{Data}}</h1>

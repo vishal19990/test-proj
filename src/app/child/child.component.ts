@@ -6,7 +6,9 @@ import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnInit {
-@Input() msg="";
+@Input() msg="sdds";
+cmessgae=""
+data=""
 @Output() newItemEvent = new EventEmitter<string>();
   constructor() { }
 
@@ -14,8 +16,12 @@ export class ChildComponent implements OnInit {
   }
   OnClick(){
     debugger
-    this.newItemEvent.emit("Good Moring")
+    this.newItemEvent.emit(this.data)
    
   }
-
+  onchange(e:any)
+  {
+    debugger
+this.data=e.currentTarget.value;
+  }
 }
