@@ -12,7 +12,12 @@ const routes: Routes = [
   {
   path:'signup',
   component:SingupComponent
-},{
+},
+{
+  path:'error',
+  component:ErrorComponent
+},
+{
   path:'**',
   component:ErrorComponent
 }

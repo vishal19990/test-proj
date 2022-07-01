@@ -8,6 +8,8 @@ import { SingupComponent } from './singup/singup.component';
 import { ErrorComponent } from './error/error.component';
 import { ChildComponent } from './child/child.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginService } from './login/login.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

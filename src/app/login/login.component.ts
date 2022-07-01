@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from './login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private loginService:LoginService ,private router:Router) { }
 
 
 loginform = new FormGroup({
@@ -16,9 +17,11 @@ username:new FormControl('',[Validators.maxLength(5),Validators.required]),
 password:new FormControl('',Validators.required)
 
 })
-Data="";
+Data={};
   ngOnInit(): void {
-    
+    this.loginService.getalluser().subscribe(data=>{
+      debugger
+    })
   }
   ShowMessage(event:any){
   
@@ -30,8 +33,17 @@ Data="";
   onSubmit()
   {
     debugger
-    this.Data=this.loginform.get('username')?.value;
-    this.Data=this.loginform.get('password')?.value;
+
+
+    var loginModel={
+      userEmail:this.loginform.get('username')?.value,
+      Password:this.loginform.get('password')?.value
+    }
+    this.loginService.login(loginModel).subscribe((data:any)=>{
+this.Data=data.userId;
+debugger
+this.router.navigateByUrl('/error')
+    })
     
   }
 
